@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1525508014226514721}
   - component: {fileID: 3883613208917358973}
   - component: {fileID: 6002777568257595240}
-  - component: {fileID: 7293644011808148248}
   m_Layer: 0
   m_Name: FireSleetSniper
   m_TagString: Untagged
@@ -114,26 +113,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FPCamera: {fileID: 0}
+  ammoType: 2
   range: 250
   timeBetweenShots: 1
   damageDeals: 50
+  magSize: 10
+  magSizeText: {fileID: 0}
+  currentAmmoText: {fileID: 0}
   muzzleFlash: {fileID: 6386476003079540223}
   hitEffect: {fileID: 9188532632962136895, guid: ac682e3de9ac4454b89fad2addce70da,
     type: 3}
   hitEffectDuration: 2
---- !u!114 &7293644011808148248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1525508014224260577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cff59802d5aa71144a3f5b609fe6020b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammoAmount: 10
 --- !u!1001 &8075981411444983430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -146,6 +136,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MuzzleFlashFX
       objectReference: {fileID: 0}
+    - target: {fileID: 2932674967571712889, guid: 53a370ed38ff2a540be68d3242841f54,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3712933551273694875, guid: 53a370ed38ff2a540be68d3242841f54,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -154,7 +149,7 @@ PrefabInstance:
     - target: {fileID: 3712933551273694875, guid: 53a370ed38ff2a540be68d3242841f54,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.43
       objectReference: {fileID: 0}
     - target: {fileID: 3712933551273694875, guid: 53a370ed38ff2a540be68d3242841f54,
         type: 3}
@@ -164,7 +159,7 @@ PrefabInstance:
     - target: {fileID: 3712933551273694875, guid: 53a370ed38ff2a540be68d3242841f54,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3712933551273694875, guid: 53a370ed38ff2a540be68d3242841f54,
         type: 3}
@@ -179,7 +174,7 @@ PrefabInstance:
     - target: {fileID: 3712933551273694875, guid: 53a370ed38ff2a540be68d3242841f54,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3712933551273694875, guid: 53a370ed38ff2a540be68d3242841f54,
         type: 3}
@@ -189,7 +184,7 @@ PrefabInstance:
     - target: {fileID: 3712933551273694875, guid: 53a370ed38ff2a540be68d3242841f54,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 3712933551273694875, guid: 53a370ed38ff2a540be68d3242841f54,
         type: 3}

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 57810471658443373}
   - component: {fileID: 8878833444561638214}
   - component: {fileID: 2155531583461554761}
-  - component: {fileID: 9178050655157872844}
   m_Layer: 0
   m_Name: MaulerSMG
   m_TagString: Untagged
@@ -96,8 +95,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FPCamera: {fileID: 0}
+  ammoType: 0
   range: 150
+  timeBetweenShots: 0.1
   damageDeals: 25
+  magSize: 24
+  magSizeText: {fileID: 0}
+  currentAmmoText: {fileID: 0}
   muzzleFlash: {fileID: 2208413409046978955}
   hitEffect: {fileID: 9188532632962136895, guid: ac682e3de9ac4454b89fad2addce70da,
     type: 3}
@@ -119,19 +123,6 @@ MonoBehaviour:
   adsMouseSensitivity: 0.6
   normalFOV: 60
   normalMouseSensitivity: 1.3
---- !u!114 &9178050655157872844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57810471656180909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cff59802d5aa71144a3f5b609fe6020b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammoAmount: 25
 --- !u!1001 &3897628065265527538
 PrefabInstance:
   m_ObjectHideFlags: 0

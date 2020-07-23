@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 11400004}
   m_Layer: 0
   m_Name: RigidBodyFPSController
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -432,6 +432,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireSleetSniper
       objectReference: {fileID: 0}
+    - target: {fileID: 1525508014224260577, guid: a1d70767381791c4b918e20b819c5c59,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1525508014224613825, guid: a1d70767381791c4b918e20b819c5c59,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -497,6 +502,11 @@ PrefabInstance:
       propertyPath: FPCamera
       value: 
       objectReference: {fileID: 2000000}
+    - target: {fileID: 7293644011808148248, guid: a1d70767381791c4b918e20b819c5c59,
+        type: 3}
+      propertyPath: ammoType
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1d70767381791c4b918e20b819c5c59, type: 3}
 --- !u!4 &6837133702593168563 stripped
@@ -587,6 +597,11 @@ PrefabInstance:
       propertyPath: FPCamera
       value: 
       objectReference: {fileID: 2000000}
+    - target: {fileID: 9178050655157872844, guid: 6bae47ee4d304b54e818449282475862,
+        type: 3}
+      propertyPath: ammoType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bae47ee4d304b54e818449282475862, type: 3}
 --- !u!4 &7343389307087204350 stripped
@@ -602,6 +617,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4612939468047451608}
     m_Modifications:
+    - target: {fileID: 2923845276691333819, guid: 854d69b7b0584e646861eeba866c34c5,
+        type: 3}
+      propertyPath: ammoType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6393611570342197949, guid: 854d69b7b0584e646861eeba866c34c5,
         type: 3}
       propertyPath: m_Name

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6393611570344125565}
   - component: {fileID: 8744358154247596767}
   - component: {fileID: 7053068555282718571}
-  - component: {fileID: 2923845276691333819}
   m_Layer: 0
   m_Name: HellwailerShotgun
   m_TagString: Untagged
@@ -97,8 +96,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FPCamera: {fileID: 0}
+  ammoType: 1
   range: 15
+  timeBetweenShots: 0.3
   damageDeals: 50
+  magSize: 8
+  magSizeText: {fileID: 0}
+  currentAmmoText: {fileID: 0}
   muzzleFlash: {fileID: 8452639645002874626}
   hitEffect: {fileID: 9188532632962136895, guid: ac682e3de9ac4454b89fad2addce70da,
     type: 3}
@@ -116,23 +120,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fpsCamera: {fileID: 0}
-  adsFOV: 19
+  adsFOV: 38
   adsMouseSensitivity: 0.3
   normalFOV: 60
   normalMouseSensitivity: 1.3
---- !u!114 &2923845276691333819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6393611570342197949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cff59802d5aa71144a3f5b609fe6020b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammoAmount: 4
 --- !u!1001 &6773196829045388411
 PrefabInstance:
   m_ObjectHideFlags: 0
