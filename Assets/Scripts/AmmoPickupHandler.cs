@@ -9,8 +9,10 @@ public class AmmoPickupHandler : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            FindObjectOfType<AmmoHandler>().IncreaseCurrentAmmo(ammoType, ammoGiveAmount);            
-            
+            FindObjectOfType<AmmoHandler>().IncreaseCurrentAmmo(ammoType, ammoGiveAmount);
+
+            other.gameObject.GetComponentInChildren<AmmoHandler>().ShowAmmoInventory();
+
             Destroy(gameObject);
         }
     }

@@ -1,26 +1,27 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealthCanvasHandler : MonoBehaviour
+public class AmmoInventoryCanvasHandler : MonoBehaviour
 {
-    [SerializeField] float fadeDuration = 1.5f;
+    [SerializeField] float fadeDuration = 6f;
 
-    Canvas playerHealthCanvas;
+    Canvas ammoInventoryCanvas;
 
     void Start()
     {
-        playerHealthCanvas = GetComponent<Canvas>();
-        playerHealthCanvas.enabled = false;
+        ammoInventoryCanvas = GetComponent<Canvas>();
+        ammoInventoryCanvas.enabled = false;
     }
 
     public void FadeCanvas()
     {
-        playerHealthCanvas.enabled = true;
+        ammoInventoryCanvas.enabled = true;
 
         CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
 
         canvasGroup.alpha = 1f;
-        StartCoroutine(FadeAway(canvasGroup, canvasGroup.alpha, 0f));        
+        StartCoroutine(FadeAway(canvasGroup, canvasGroup.alpha, 0f));
     }
 
     //IEnumerator instaead of Update method because I don't want loop to be done by a frame by frame basis
@@ -28,7 +29,7 @@ public class PlayerHealthCanvasHandler : MonoBehaviour
     {
         float counter = 0f;
 
-        while(counter < fadeDuration)
+        while (counter < fadeDuration)
         {
             counter += Time.deltaTime;
             canvasGroup.alpha = Mathf.Lerp(start, end, counter / fadeDuration);
@@ -36,6 +37,6 @@ public class PlayerHealthCanvasHandler : MonoBehaviour
             yield return null;  //returns null because I don't need this method to wait to execute
         }
 
-        playerHealthCanvas.enabled = false;
+        ammoInventoryCanvas.enabled = false;
     }
 }

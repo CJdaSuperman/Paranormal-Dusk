@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 57810471658443373}
   - component: {fileID: 8878833444561638214}
   - component: {fileID: 2155531583461554761}
+  - component: {fileID: 6948474628867096664}
+  - component: {fileID: 3711078993227963306}
   m_Layer: 0
   m_Name: MaulerSMG
   m_TagString: Untagged
@@ -97,15 +99,18 @@ MonoBehaviour:
   FPCamera: {fileID: 0}
   ammoType: 0
   range: 150
-  timeBetweenShots: 0.1
+  timeBetweenShots: 15
   damageDeals: 25
   magSize: 24
+  reloadSpeed: 3
   magSizeText: {fileID: 0}
   currentAmmoText: {fileID: 0}
   muzzleFlash: {fileID: 2208413409046978955}
   hitEffect: {fileID: 9188532632962136895, guid: ac682e3de9ac4454b89fad2addce70da,
     type: 3}
   hitEffectDuration: 2
+  shotClip: {fileID: 8300000, guid: 8c94d3ad3b72fbe4087655295291145f, type: 3}
+  reloadClip: {fileID: 8300000, guid: 83b4918cb94a4ae4284641e3d0fc9dba, type: 3}
 --- !u!114 &2155531583461554761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,9 +125,126 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fpsCamera: {fileID: 0}
   adsFOV: 38
+  aimDownPosition: {x: 0, y: 0, z: 0}
+  aimSpeed: 40
   adsMouseSensitivity: 0.6
   normalFOV: 60
   normalMouseSensitivity: 1.3
+--- !u!82 &6948474628867096664
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57810471656180909}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.75
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!95 &3711078993227963306
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57810471656180909}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e4d1a1b8ce1634f4cab430bb8026277d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &3897628065265527538
 PrefabInstance:
   m_ObjectHideFlags: 0

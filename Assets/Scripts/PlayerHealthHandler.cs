@@ -7,7 +7,7 @@ public class PlayerHealthHandler : MonoBehaviour
 {
     [SerializeField] float playerHealth = 100f;
     [SerializeField] Canvas playerHealthCanvas;
-    [SerializeField] GameObject damageIndicatorCanvas;
+    [SerializeField] Canvas damageIndicatorCanvas;
     [SerializeField] TextMeshProUGUI playerHealthText;
 
     public void DecreaseHealth(float damage)

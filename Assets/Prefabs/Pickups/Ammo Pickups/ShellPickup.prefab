@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5284109861208704861}
-  - component: {fileID: 1830850345491761659}
   - component: {fileID: 3392617800203328029}
+  - component: {fileID: 1830850345491761659}
   m_Layer: 0
   m_Name: ShellPickup
   m_TagString: Untagged
@@ -34,6 +34,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &3392617800203328029
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7222741563286014046}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1830850345491761659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,19 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoType: 1
   ammoGiveAmount: 8
---- !u!135 &3392617800203328029
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7222741563286014046}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  ammoInventoryCanvas: {fileID: 0}
 --- !u!1001 &7629106777676268113
 PrefabInstance:
   m_ObjectHideFlags: 0

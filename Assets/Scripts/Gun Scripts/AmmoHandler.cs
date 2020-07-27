@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class AmmoHandler : MonoBehaviour
@@ -8,17 +9,15 @@ public class AmmoHandler : MonoBehaviour
     public class AmmoSlot
     {
         public AmmoType ammoType;
-        public int ammoAmount = 24;
+        public int ammoAmount = 0;
     }
     
-    [SerializeField] AmmoSlot[] ammoInventory;    
+    [SerializeField] AmmoSlot[] ammoInventory;
 
-    //public AmmoType GetAmmoType() { return ammoType; }
-    
-    //public int GetAmmoAmount() { return ammoAmount; }
-
-    //TODO - used for gun reloading
-    public void ReduceAmmo(AmmoType ammoType, int magSize) => GetAmmoSlot(ammoType).ammoAmount -= magSize;
+    [SerializeField] Canvas ammoInventoryCanvas;
+    [SerializeField] TextMeshProUGUI bulletsCount;
+    [SerializeField] TextMeshProUGUI shellsCount;
+    [SerializeField] TextMeshProUGUI cartridgesCount;
 
     public void IncreaseCurrentAmmo(AmmoType ammoType, int additionalAmmo) => GetAmmoSlot(ammoType).ammoAmount += additionalAmmo;
 
@@ -33,5 +32,15 @@ public class AmmoHandler : MonoBehaviour
         }
 
         return null;
+    }
+
+
+    public void ShowAmmoInventory()
+    {       
+        bulletsCount.text = (ammoInventory[0].ammoAmount).ToString();
+        shellsCount.text = (ammoInventory[1].ammoAmount).ToString();
+        cartridgesCount.text = (ammoInventory[2].ammoAmount).ToString();
+        
+        ammoInventoryCanvas.GetComponent<AmmoInventoryCanvasHandler>().FadeCanvas();
     }
 }

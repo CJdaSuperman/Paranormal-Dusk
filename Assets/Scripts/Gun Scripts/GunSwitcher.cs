@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TODO - create an animation to switch guns
+
 public class GunSwitcher : MonoBehaviour
 {
     int currentWeapon = 0;

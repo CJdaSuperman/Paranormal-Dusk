@@ -105,6 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4622cf243c749a48a8df14d70133752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightDecay: 0.1
+  angleDecay: 1
+  minAngle: 40
 --- !u!1 &3998790630928126032
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +256,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 100
+  playerHealthCanvas: {fileID: 0}
+  damageIndicatorCanvas: {fileID: 0}
+  playerHealthText: {fileID: 0}
 --- !u!114 &3998790629323306779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +272,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverCanvas: {fileID: 0}
+  crosshairCanvas: {fileID: 0}
+  playerHealthCanvas: {fileID: 0}
 --- !u!1 &3998790630928126034
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,6 +537,21 @@ PrefabInstance:
       propertyPath: fpsCamera
       value: 
       objectReference: {fileID: 3998790630930027126}
+    - target: {fileID: 1146181355264079423, guid: c650844f252d1f440b55948745b7a7f5,
+        type: 3}
+      propertyPath: aimDownPosition.z
+      value: 0.272
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146181355264079423, guid: c650844f252d1f440b55948745b7a7f5,
+        type: 3}
+      propertyPath: aimDownPosition.y
+      value: -0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146181355264079423, guid: c650844f252d1f440b55948745b7a7f5,
+        type: 3}
+      propertyPath: aimDownPosition.x
+      value: -0.035
+      objectReference: {fileID: 0}
     - target: {fileID: 2776275176994223324, guid: c650844f252d1f440b55948745b7a7f5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -542,7 +565,7 @@ PrefabInstance:
     - target: {fileID: 2776275176994223324, guid: c650844f252d1f440b55948745b7a7f5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.187
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2776275176994223324, guid: c650844f252d1f440b55948745b7a7f5,
         type: 3}
@@ -632,7 +655,7 @@ PrefabInstance:
     - target: {fileID: 6393611570342356637, guid: 854d69b7b0584e646861eeba866c34c5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.1427
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 6393611570342356637, guid: 854d69b7b0584e646861eeba866c34c5,
         type: 3}
@@ -684,6 +707,21 @@ PrefabInstance:
       propertyPath: adsFOV
       value: 38
       objectReference: {fileID: 0}
+    - target: {fileID: 7053068555282718571, guid: 854d69b7b0584e646861eeba866c34c5,
+        type: 3}
+      propertyPath: aimDownPosition.x
+      value: -0.035
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053068555282718571, guid: 854d69b7b0584e646861eeba866c34c5,
+        type: 3}
+      propertyPath: aimDownPosition.y
+      value: -0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053068555282718571, guid: 854d69b7b0584e646861eeba866c34c5,
+        type: 3}
+      propertyPath: aimDownPosition.z
+      value: 0.272
+      objectReference: {fileID: 0}
     - target: {fileID: 8744358154247596767, guid: 854d69b7b0584e646861eeba866c34c5,
         type: 3}
       propertyPath: FPCamera
@@ -692,7 +730,7 @@ PrefabInstance:
     - target: {fileID: 8744358154247596767, guid: 854d69b7b0584e646861eeba866c34c5,
         type: 3}
       propertyPath: timeBetweenShots
-      value: 1
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 854d69b7b0584e646861eeba866c34c5, type: 3}
@@ -722,7 +760,7 @@ PrefabInstance:
     - target: {fileID: 57810471656018061, guid: 6bae47ee4d304b54e818449282475862,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.15
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 57810471656018061, guid: 6bae47ee4d304b54e818449282475862,
         type: 3}
@@ -779,6 +817,21 @@ PrefabInstance:
       propertyPath: fpsCamera
       value: 
       objectReference: {fileID: 3998790630930027126}
+    - target: {fileID: 2155531583461554761, guid: 6bae47ee4d304b54e818449282475862,
+        type: 3}
+      propertyPath: aimDownPosition.x
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155531583461554761, guid: 6bae47ee4d304b54e818449282475862,
+        type: 3}
+      propertyPath: aimDownPosition.y
+      value: -0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155531583461554761, guid: 6bae47ee4d304b54e818449282475862,
+        type: 3}
+      propertyPath: aimDownPosition.z
+      value: 0.115
+      objectReference: {fileID: 0}
     - target: {fileID: 8878833444561638214, guid: 6bae47ee4d304b54e818449282475862,
         type: 3}
       propertyPath: FPCamera
@@ -817,12 +870,12 @@ PrefabInstance:
     - target: {fileID: 1525508014224613825, guid: a1d70767381791c4b918e20b819c5c59,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.060124874
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 1525508014224613825, guid: a1d70767381791c4b918e20b819c5c59,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.15
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 1525508014224613825, guid: a1d70767381791c4b918e20b819c5c59,
         type: 3}
@@ -869,6 +922,16 @@ PrefabInstance:
       propertyPath: fpsCamera
       value: 
       objectReference: {fileID: 3998790630930027126}
+    - target: {fileID: 3883613208917358973, guid: a1d70767381791c4b918e20b819c5c59,
+        type: 3}
+      propertyPath: aimDownPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883613208917358973, guid: a1d70767381791c4b918e20b819c5c59,
+        type: 3}
+      propertyPath: aimDownPosition.z
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6002777568257595240, guid: a1d70767381791c4b918e20b819c5c59,
         type: 3}
       propertyPath: FPCamera
