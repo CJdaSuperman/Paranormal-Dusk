@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class GunHandler : MonoBehaviour
 {
@@ -33,13 +30,16 @@ public class GunHandler : MonoBehaviour
     int currentAmmo;
 
     float nextTimeToFire = 0f;
+
+    GameManager gameManager;
     
-    //using instead of Start() because of an error to a null reference in OnEnable()
+    //using instead of Start() because of an error to a null reference for the animator component in OnEnable() 
     void Awake()
     {
         ammoHandler = GetComponentInParent<AmmoHandler>();
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
+        gameManager = FindObjectOfType<GameManager>();
         currentAmmo = magSize;
     }
 
@@ -52,21 +52,20 @@ public class GunHandler : MonoBehaviour
 
     void Update()
     {
+        if(gameManager.isGamePaused()) { return; }
+        
         DisplayAmmo();
 
         if (Input.GetKeyDown(KeyCode.CapsLock))
-        {
             ammoHandler.ShowAmmoInventory();
-        }
 
         if (isReloading) { return; } //to avoid Coroutine happening every frame
 
-        if (Input.GetKeyDown(KeyCode.R) && currentAmmo != magSize && currentAmmo != ammoHandler.GetAmmoSlot(ammoType).ammoAmount)
+        //if a bullet has been shot and you have remaining ammo in inventory, then reload
+        if (Input.GetKeyDown(KeyCode.R) && currentAmmo != magSize)
         {
             if (ammoHandler.GetAmmoSlot(ammoType).ammoAmount > 0)
-            {
-                StartCoroutine(Reload());                
-            }
+                StartCoroutine(Reload());      
 
             return;
         }    
@@ -96,27 +95,26 @@ public class GunHandler : MonoBehaviour
 
         animator.SetBool("Reloading", false);
 
-       //When you have more ammo in inventory than what the mag size can carry
-        if (ammoHandler.GetAmmoSlot(ammoType).ammoAmount >= magSize)
-        {
-            int ammoUsed = magSize - currentAmmo;
-            ammoHandler.GetAmmoSlot(ammoType).ammoAmount -= ammoUsed;  
-            currentAmmo = magSize;
-        }
-        //When ammo inventory is less than what the mag size can carry but you have bullets left i.e. You have 10 current bullets with 2 left in the inventory
-        else
-        {
-            //add remaining ammo from inventory
-            currentAmmo += ammoHandler.GetAmmoSlot(ammoType).ammoAmount;
-
-            //deducts the ammo from inventory that was used
-            ammoHandler.GetAmmoSlot(ammoType).ammoAmount -= ammoHandler.GetAmmoSlot(ammoType).ammoAmount; 
-        }
+        UpdateAmmoInventory();
 
         isReloading = false;
     }
 
-
+    void UpdateAmmoInventory()
+    {
+        //if there will be leftover ammo in the inventory after reloading, the current ammo will be the magSize; otherwise, use remaining ammo in inventory to reload
+        if (currentAmmo + ammoHandler.GetAmmoSlot(ammoType).ammoAmount > magSize)
+        {
+            int ammoUsed = magSize - currentAmmo;
+            ammoHandler.GetAmmoSlot(ammoType).ammoAmount -= ammoUsed;
+            currentAmmo = magSize;
+        }
+        else
+        {
+            currentAmmo += ammoHandler.GetAmmoSlot(ammoType).ammoAmount;
+            ammoHandler.GetAmmoSlot(ammoType).ammoAmount -= ammoHandler.GetAmmoSlot(ammoType).ammoAmount;
+        }
+    }
 
     void Shoot()
     {
@@ -133,15 +131,9 @@ public class GunHandler : MonoBehaviour
         }
     }
 
-    void PlayMuzzleFlash()
-    {
-        muzzleFlash.Play();
-    }
+    void PlayMuzzleFlash() => muzzleFlash.Play();
 
-    void PlayAudio()
-    {
-        audioSource.PlayOneShot(shotClip);
-    }
+    void PlayAudio() => audioSource.PlayOneShot(shotClip);
 
     void ProcessRayCast()
     {

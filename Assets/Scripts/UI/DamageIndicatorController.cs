@@ -1,6 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class DamageIndicatorController : MonoBehaviour
@@ -15,10 +13,7 @@ public class DamageIndicatorController : MonoBehaviour
         damageIndicatorCanvas.enabled = false;
     }
 
-    public void IndicateDamage()
-    {
-        StartCoroutine(DisplayIndicator());
-    }
+    public void IndicateDamage() => StartCoroutine(DisplayIndicator());
 
     IEnumerator DisplayIndicator()
     {

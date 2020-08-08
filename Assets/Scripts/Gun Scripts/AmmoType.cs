@@ -1,2 +1,1 @@
-﻿
-public enum AmmoType{ Bullets, Shells, SniperCartridges }
+﻿public enum AmmoType{ Bullets, Shells, SniperCartridges }

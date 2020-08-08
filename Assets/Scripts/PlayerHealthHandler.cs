@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class PlayerHealthHandler : MonoBehaviour
@@ -12,9 +10,13 @@ public class PlayerHealthHandler : MonoBehaviour
 
     float maxHealth;
 
+    GameManager gameManager;
+
     void Start()
     {
         maxHealth = playerHealth;
+
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     public void DecreaseHealth(float damage)
@@ -22,25 +24,20 @@ public class PlayerHealthHandler : MonoBehaviour
         playerHealth -= damage;
 
         damageIndicatorCanvas.GetComponent<DamageIndicatorController>().IndicateDamage();
-
-        if(playerHealth <= 0)
-        {
-            GetComponent<DeathHandler>().Die();
-        }
     }
 
     void Update()
     {        
+        if(gameManager.isGamePaused()) { return; }
+        
         if(Input.GetKeyDown(KeyCode.CapsLock))
-        {
             ShowPlayerHealthCanvas();
-        }
     }
 
     public void ShowPlayerHealthCanvas()
     {
-            playerHealthText.text = playerHealth.ToString();
-            playerHealthCanvas.GetComponent<PlayerHealthCanvasHandler>().FadeCanvas();
+        playerHealthText.text = playerHealth.ToString();
+        playerHealthCanvas.GetComponent<PlayerHealthCanvasHandler>().FadeCanvas();
     }
     
     public float GetMaxHealth() { return maxHealth; }
@@ -49,7 +46,7 @@ public class PlayerHealthHandler : MonoBehaviour
     
     public void AddToCurrentHealth(float replenishedHealth) 
     {
-        if ((playerHealth += replenishedHealth) > maxHealth)
+        if (playerHealth + replenishedHealth > maxHealth)
             playerHealth = maxHealth;
         else
             playerHealth += replenishedHealth;

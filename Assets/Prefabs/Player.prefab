@@ -121,7 +121,6 @@ GameObject:
   - component: {fileID: 3998790630924850166}
   - component: {fileID: 3998790630918448562}
   - component: {fileID: 3998790629323306778}
-  - component: {fileID: 3998790629323306779}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -259,21 +258,6 @@ MonoBehaviour:
   playerHealthCanvas: {fileID: 0}
   damageIndicatorCanvas: {fileID: 0}
   playerHealthText: {fileID: 0}
---- !u!114 &3998790629323306779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3998790630928126032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3b6d1184ae25a649ab59073377b8c80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameOverCanvas: {fileID: 0}
-  crosshairCanvas: {fileID: 0}
-  playerHealthCanvas: {fileID: 0}
 --- !u!1 &3998790630928126034
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,6 +494,10 @@ MonoBehaviour:
     ammoAmount: 8
   - ammoType: 2
     ammoAmount: 20
+  ammoInventoryCanvas: {fileID: 0}
+  bulletsCount: {fileID: 0}
+  shellsCount: {fileID: 0}
+  cartridgesCount: {fileID: 0}
 --- !u!1001 &4217455188888154775
 PrefabInstance:
   m_ObjectHideFlags: 0

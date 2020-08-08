@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
@@ -35,29 +31,29 @@ public class EnemyAI : MonoBehaviour
         
         distanceToTarget = Vector3.Distance(target.position, transform.position);
 
-        if (isProvoked)
-        {
-            EngageTarget();
-        }
-        else if (distanceToTarget <= chaseRange)
-        {
-            isProvoked = true;            
-        }
+        if (isProvoked)        
+            EngageTarget();        
+        else if (distanceToTarget <= chaseRange)        
+            isProvoked = true;                    
     }
 
     void EngageTarget()
     {
         FaceTarget(); 
         
-        if(distanceToTarget >= agent.stoppingDistance)
-        {
-            ChaseTarget();
-        }
+        if(distanceToTarget >= agent.stoppingDistance)        
+            ChaseTarget();        
 
-        if(distanceToTarget <= agent.stoppingDistance)
-        {
-            AttackTarget();
-        }
+        if(distanceToTarget <= agent.stoppingDistance)        
+            AttackTarget();        
+    }
+
+    void FaceTarget()
+    {
+        Vector3 direction = (target.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed);
     }
 
     void ChaseTarget()
@@ -68,23 +64,9 @@ public class EnemyAI : MonoBehaviour
         agent.SetDestination(target.position);
     }
 
-    public void OnDamageTaken()
-    {
-        isProvoked = true;
-    }
+    void AttackTarget() => animator.SetBool("AttackCondition", true);
 
-    void AttackTarget()
-    {
-        animator.SetBool("AttackCondition", true);
-    }
-
-    void FaceTarget()
-    {
-        Vector3 direction = (target.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed);
-    }
+    public void OnDamageTaken() => isProvoked = true;
 
     public Transform GetTarget() { return target; }
 

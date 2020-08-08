@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-//TODO - create an animation to switch guns
+﻿using UnityEngine;
 
 public class GunSwitcher : MonoBehaviour
 {
     int currentWeapon = 0;
 
+    GameManager gameManager;
+
     void Start()
     {
         SetWeaponActive();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     void SetWeaponActive()
@@ -31,6 +29,8 @@ public class GunSwitcher : MonoBehaviour
 
    void Update()
     {
+        if(gameManager.isGamePaused()) { return; }
+        
         int previousWeapon = currentWeapon;
 
         ScrollWheelSwitching();
@@ -74,6 +74,4 @@ public class GunSwitcher : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha4) && transform.childCount >= 4)
             currentWeapon = 3;
     }
-
-    
 }

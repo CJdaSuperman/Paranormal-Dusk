@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AmmoBoxHandler : MonoBehaviour
 {
@@ -10,10 +8,7 @@ public class AmmoBoxHandler : MonoBehaviour
 
     bool isBoxOpen = false;
 
-    void Start()
-    {
-        controlsCanvas.enabled = false;    
-    }
+    void Start() => controlsCanvas.enabled = false;    
 
 
     void OnTriggerEnter(Collider other)

@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4959d09d8afd4f24f96b99e244b67cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightAngle: 70
+  lightAngle: 100
   lightIntensity: 10
 --- !u!1 &4118378348468047393
 GameObject:

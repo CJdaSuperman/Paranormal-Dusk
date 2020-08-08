@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealthHandler : MonoBehaviour
@@ -18,9 +17,7 @@ public class EnemyHealthHandler : MonoBehaviour
         healthPoints -= damage;
 
         if(healthPoints <= 0)
-        {
             Die();
-        }
     }
 
     void Die()
@@ -36,9 +33,7 @@ public class EnemyHealthHandler : MonoBehaviour
         float currentPlayerHealth = player.GetComponent<PlayerHealthHandler>().GetCurrentHealth();
 
         if (currentPlayerHealth < playerMaxHealth)
-        {
             StartCoroutine(FadeCorpse());
-        }
     }
 
     IEnumerator FadeCorpse()

@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.ProBuilder;
+﻿using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 
 public class GunZoomHandler : MonoBehaviour
@@ -19,30 +16,28 @@ public class GunZoomHandler : MonoBehaviour
 
     Animator animator;
 
+    GameManager gameManager;
+
     void Awake()
     {
         fpsController = GetComponentInParent<RigidbodyFirstPersonController>();
         animator = GetComponent<Animator>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     //Allows the gun to go back to idle if it was switched
-    void OnEnable()
-    {
-        animator.SetBool("Aim Down", false);
-    }
+    void OnEnable() => animator.SetBool("Aim Down", false);
 
     void Update()
     {
+        if(gameManager.isGamePaused()) { return; }    
+        
         if(Input.GetMouseButtonDown(1))
         {
             if(!isADS)
-            {
                 AimDownSight();
-            }
             else if(isADS)
-            {
                 NormalView();
-            }
         }
 
         if (GetComponent<GunHandler>().IsReloading())
@@ -73,8 +68,5 @@ public class GunZoomHandler : MonoBehaviour
         fpsController.mouseLook.YSensitivity = normalMouseSensitivity;
     }    
 
-    void OnDisable()
-    {
-        NormalView();
-    }
+    void OnDisable() => NormalView();
 }

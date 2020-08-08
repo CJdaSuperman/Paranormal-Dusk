@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FlashlightHandler : MonoBehaviour
 {
@@ -11,13 +8,8 @@ public class FlashlightHandler : MonoBehaviour
 
     Light light;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        light = GetComponent<Light>();
-    }
+    void Start() => light = GetComponent<Light>();
 
-    // Update is called once per frame
     void Update()
     {
         DecreaseLightAngle();
@@ -31,18 +23,9 @@ public class FlashlightHandler : MonoBehaviour
         light.spotAngle -= angleDecay * Time.deltaTime;
     }
 
-    void DecreaseLightIntensity()
-    {
-        light.intensity -= lightDecay * Time.deltaTime;
-    }
+    void DecreaseLightIntensity() => light.intensity -= lightDecay * Time.deltaTime;
 
-    public void RestoreLightAngle(float restoreAngle)
-    {
-        light.spotAngle = 70f;
-    }
+    public void RestoreLightAngle(float restoreAngle) => light.spotAngle = restoreAngle;
 
-    public void RestoreLightIntensity(float intensityAmount)
-    {
-        light.intensity = intensityAmount;
-    }
+    public void RestoreLightIntensity(float intensityAmount) => light.intensity = intensityAmount;
 }
