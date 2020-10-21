@@ -5,4 +5,4 @@ It's a first-person shooter horror game where your goal is to survive hordes of 
 
 I learned how to make this game through Udemy's Complete C# Unity Developer 3D course. Most of the assets were from Unity’s Asset Store. Most of the code to make the gameplay elements are also from the course. However, I incorporated more features than what the course offered and that code I made myself. These features include a HUD that you can toggle on and it fades away, replenish player health from killing the monsters that did damage to you, and creating ammo boxes to get ammo.
 
-To find the source code for this project, go to Assets-> Scripts (disregard the folder named ‘Script’). 
+To find the source code for this project, go to Assets-> Scripts (disregard the folder named ‘Script’). The link provided is the progress made so far. https://www.youtube.com/watch?v=TLDXEDi1OSI
