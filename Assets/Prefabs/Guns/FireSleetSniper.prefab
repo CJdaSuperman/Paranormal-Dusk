@@ -11,9 +11,12 @@ GameObject:
   - component: {fileID: 1525508014224613825}
   - component: {fileID: 1525508014225416673}
   - component: {fileID: 1525508014226514721}
-  - component: {fileID: 3883613208917358973}
-  - component: {fileID: 6002777568257595240}
   - component: {fileID: 7757952726166780789}
+  - component: {fileID: 7954288220929789947}
+  - component: {fileID: 6011290229872541786}
+  - component: {fileID: 7633351330123974855}
+  - component: {fileID: 6611654762499333709}
+  - component: {fileID: 5406365216374872794}
   m_Layer: 0
   m_Name: FireSleetSniper
   m_TagString: Untagged
@@ -63,7 +66,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6d48a3a13b0fa584f860c7940154fdf3, type: 2}
-  - {fileID: 2100000, guid: dec79994033cc2d428f93ed3908530cf, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,51 +87,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &3883613208917358973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1525508014224260577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adf5c748badfd0348b23fb012ad39b7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fpsCamera: {fileID: 0}
-  adsFOV: 19
-  aimDownPosition: {x: 0, y: 0, z: 0}
-  aimSpeed: 40
-  adsMouseSensitivity: 0.3
-  normalFOV: 60
-  normalMouseSensitivity: 1.3
---- !u!114 &6002777568257595240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1525508014224260577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d5860a99be6bab489d3a9fd52f99333, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FPCamera: {fileID: 0}
-  ammoType: 2
-  range: 250
-  timeBetweenShots: 0.833
-  damageDeals: 50
-  magSize: 10
-  reloadSpeed: 4
-  magSizeText: {fileID: 0}
-  currentAmmoText: {fileID: 0}
-  muzzleFlash: {fileID: 6386476003079540223}
-  hitEffect: {fileID: 9188532632962136895, guid: ac682e3de9ac4454b89fad2addce70da,
-    type: 3}
-  hitEffectDuration: 2
-  shotClip: {fileID: 8300000, guid: 20007e5f4f25cb645b4ce81c87d53d42, type: 3}
 --- !u!82 &7757952726166780789
 AudioSource:
   m_ObjectHideFlags: 0
@@ -225,6 +183,98 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &7954288220929789947
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525508014224260577}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 01ac1585a75177b4aa56f39e7fd16a81, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6011290229872541786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525508014224260577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f523da3f23cd8c944a9b376b377c6dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_camera: {fileID: 0}
+  m_animator: {fileID: 7954288220929789947}
+  m_gunsController: {fileID: 0}
+  m_ammoType: 2
+  m_firingRange: 2000
+  m_timeBetweenShots: 1.5
+  m_damageDeals: 100
+  m_magSize: 5
+  m_reloadSpeed: 2
+--- !u!114 &7633351330123974855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525508014224260577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 751e359a94734f54185f1e40ca9f754e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_gun: {fileID: 6011290229872541786}
+  m_muzzleFlash: {fileID: 6386476003079540223}
+  m_hitFxPrefab: {fileID: 9188532632962136895, guid: ac682e3de9ac4454b89fad2addce70da,
+    type: 3}
+  m_hitFxDuration: 2
+--- !u!114 &6611654762499333709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525508014224260577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56741e5b50252bb49a2e6078e220b11a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_audioSource: {fileID: 7757952726166780789}
+  m_shotClip: {fileID: 8300000, guid: 20007e5f4f25cb645b4ce81c87d53d42, type: 3}
+  m_reloadClip: {fileID: 8300000, guid: 87f5abec1f10a4442abb961ff363986c, type: 3}
+  m_gun: {fileID: 6011290229872541786}
+--- !u!114 &5406365216374872794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525508014224260577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b29f21c14b9d7c242888ba4f852ae12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fpsCamera: {fileID: 0}
+  m_fpsController: {fileID: 0}
+  m_gun: {fileID: 6011290229872541786}
+  m_normalFOV: 60
+  m_adsFOV: 19
+  m_normalMouseSensitivity: 1.3
+  m_adsMouseSensitivity: 0.3
 --- !u!1001 &8075981411444983430
 PrefabInstance:
   m_ObjectHideFlags: 0

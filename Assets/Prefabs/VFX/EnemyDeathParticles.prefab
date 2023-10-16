@@ -4874,3 +4874,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e903479ff9bda6b4889f007852bc639e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_replenishAmount: 20
+  m_sphereCollider: {fileID: 5694406989561554894}

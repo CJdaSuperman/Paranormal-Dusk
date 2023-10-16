@@ -46,8 +46,8 @@ Light:
   m_Color: {r: 1, g: 0.95686275, b: 0.3254902, a: 1}
   m_Intensity: 10
   m_Range: 20
-  m_SpotAngle: 70
-  m_InnerSpotAngle: 7
+  m_SpotAngle: 100
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -105,9 +105,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4622cf243c749a48a8df14d70133752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightDecay: 0.1
-  angleDecay: 1
-  minAngle: 40
+  m_light: {fileID: 4611432582832085050}
+  m_lightDecay: 0.1
+  m_angleDecay: 0.5
+  m_minAngle: 40
 --- !u!1 &3998790630928126032
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +121,9 @@ GameObject:
   - component: {fileID: 3998790630933426998}
   - component: {fileID: 3998790630924850166}
   - component: {fileID: 3998790630918448562}
-  - component: {fileID: 3998790629323306778}
+  - component: {fileID: 1792554899468172859}
+  - component: {fileID: 1794194867791244501}
+  - component: {fileID: 584926166703808425}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -187,7 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 3998790630930027126}
   movementSettings:
-    ForwardSpeed: 8
+    ForwardSpeed: 4
     BackwardSpeed: 4
     StrafeSpeed: 4
     RunMultiplier: 2
@@ -242,7 +245,7 @@ MonoBehaviour:
     slowDownRate: 20
     airControl: 0
     shellOffset: 0
---- !u!114 &3998790629323306778
+--- !u!114 &1792554899468172859
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -251,13 +254,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 3998790630928126032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d31fc44902c0380409e45cfd73057d49, type: 3}
+  m_Script: {fileID: 11500000, guid: 3608cab9d52acff45960c6cdcee5735b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 100
-  playerHealthCanvas: {fileID: 0}
-  damageIndicatorCanvas: {fileID: 0}
-  playerHealthText: {fileID: 0}
+  m_maxHealth: 100
+  m_flashlight: {fileID: 8897695429702628556}
+--- !u!114 &1794194867791244501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3998790630928126032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca5ebfadcebf1f4198159dcfce29f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_guns:
+  - {fileID: 4396022316826115298}
+  - {fileID: 3988444682335830274}
+  - {fileID: 1294446032106029611}
+  - {fileID: 3448415830516184030}
+  m_player: {fileID: 1792554899468172859}
+--- !u!114 &584926166703808425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3998790630928126032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c40c9a14ef12c439f8d4dd01886be4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_gunsController: {fileID: 1794194867791244501}
 --- !u!1 &3998790630928126034
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,10 +468,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8609469499478446894}
-  - component: {fileID: 3998790629786088807}
-  - component: {fileID: 3998790629786088804}
   m_Layer: 0
-  m_Name: Weapons
+  m_Name: Guns
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -463,41 +493,6 @@ Transform:
   m_Father: {fileID: 3998790630928419958}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3998790629786088807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6666865290577016970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21f58371ca592f74f93ddb7587d2a92f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3998790629786088804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6666865290577016970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cff59802d5aa71144a3f5b609fe6020b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammoInventory:
-  - ammoType: 0
-    ammoAmount: 24
-  - ammoType: 1
-    ammoAmount: 8
-  - ammoType: 2
-    ammoAmount: 20
-  ammoInventoryCanvas: {fileID: 0}
-  bulletsCount: {fileID: 0}
-  shellsCount: {fileID: 0}
-  cartridgesCount: {fileID: 0}
 --- !u!1001 &4217455188888154775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -505,6 +500,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8609469499478446894}
     m_Modifications:
+    - target: {fileID: 542303494780112501, guid: c650844f252d1f440b55948745b7a7f5,
+        type: 3}
+      propertyPath: m_camera
+      value: 
+      objectReference: {fileID: 3998790630930027126}
+    - target: {fileID: 542303494780112501, guid: c650844f252d1f440b55948745b7a7f5,
+        type: 3}
+      propertyPath: m_gunsController
+      value: 
+      objectReference: {fileID: 1794194867791244501}
     - target: {fileID: 1102268318904935524, guid: c650844f252d1f440b55948745b7a7f5,
         type: 3}
       propertyPath: FPCamera
@@ -540,6 +545,16 @@ PrefabInstance:
       propertyPath: aimDownPosition.x
       value: -0.035
       objectReference: {fileID: 0}
+    - target: {fileID: 2394543380790837905, guid: c650844f252d1f440b55948745b7a7f5,
+        type: 3}
+      propertyPath: m_fpsCamera
+      value: 
+      objectReference: {fileID: 3998790630930027126}
+    - target: {fileID: 2394543380790837905, guid: c650844f252d1f440b55948745b7a7f5,
+        type: 3}
+      propertyPath: m_fpsController
+      value: 
+      objectReference: {fileID: 3998790630918448562}
     - target: {fileID: 2776275176994223324, guid: c650844f252d1f440b55948745b7a7f5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -613,6 +628,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4217455188888154775}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4396022316826115298 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 542303494780112501, guid: c650844f252d1f440b55948745b7a7f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 4217455188888154775}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f523da3f23cd8c944a9b376b377c6dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5275955525211226542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -620,6 +647,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8609469499478446894}
     m_Modifications:
+    - target: {fileID: 6241547046874030625, guid: 854d69b7b0584e646861eeba866c34c5,
+        type: 3}
+      propertyPath: m_fpsCamera
+      value: 
+      objectReference: {fileID: 3998790630930027126}
+    - target: {fileID: 6241547046874030625, guid: 854d69b7b0584e646861eeba866c34c5,
+        type: 3}
+      propertyPath: m_fpsController
+      value: 
+      objectReference: {fileID: 3998790630918448562}
     - target: {fileID: 6393611570342197949, guid: 854d69b7b0584e646861eeba866c34c5,
         type: 3}
       propertyPath: m_Name
@@ -720,6 +757,16 @@ PrefabInstance:
       propertyPath: timeBetweenShots
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 9110281589099970732, guid: 854d69b7b0584e646861eeba866c34c5,
+        type: 3}
+      propertyPath: m_camera
+      value: 
+      objectReference: {fileID: 3998790630930027126}
+    - target: {fileID: 9110281589099970732, guid: 854d69b7b0584e646861eeba866c34c5,
+        type: 3}
+      propertyPath: m_gunsController
+      value: 
+      objectReference: {fileID: 1794194867791244501}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 854d69b7b0584e646861eeba866c34c5, type: 3}
 --- !u!4 &1264770707400484659 stripped
@@ -728,6 +775,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5275955525211226542}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3988444682335830274 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9110281589099970732, guid: 854d69b7b0584e646861eeba866c34c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 5275955525211226542}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f523da3f23cd8c944a9b376b377c6dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5934364558225271173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -800,6 +859,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2079130247750642067, guid: 6bae47ee4d304b54e818449282475862,
+        type: 3}
+      propertyPath: m_fpsCamera
+      value: 
+      objectReference: {fileID: 3998790630930027126}
+    - target: {fileID: 2079130247750642067, guid: 6bae47ee4d304b54e818449282475862,
+        type: 3}
+      propertyPath: m_fpsController
+      value: 
+      objectReference: {fileID: 3998790630918448562}
     - target: {fileID: 2155531583461554761, guid: 6bae47ee4d304b54e818449282475862,
         type: 3}
       propertyPath: fpsCamera
@@ -820,6 +889,16 @@ PrefabInstance:
       propertyPath: aimDownPosition.z
       value: 0.115
       objectReference: {fileID: 0}
+    - target: {fileID: 4876785766874180526, guid: 6bae47ee4d304b54e818449282475862,
+        type: 3}
+      propertyPath: m_camera
+      value: 
+      objectReference: {fileID: 3998790630930027126}
+    - target: {fileID: 4876785766874180526, guid: 6bae47ee4d304b54e818449282475862,
+        type: 3}
+      propertyPath: m_gunsController
+      value: 
+      objectReference: {fileID: 1794194867791244501}
     - target: {fileID: 8878833444561638214, guid: 6bae47ee4d304b54e818449282475862,
         type: 3}
       propertyPath: FPCamera
@@ -833,6 +912,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5934364558225271173}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1294446032106029611 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4876785766874180526, guid: 6bae47ee4d304b54e818449282475862,
+    type: 3}
+  m_PrefabInstance: {fileID: 5934364558225271173}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f523da3f23cd8c944a9b376b377c6dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8986756516326699908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -920,11 +1011,31 @@ PrefabInstance:
       propertyPath: aimDownPosition.z
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 5406365216374872794, guid: a1d70767381791c4b918e20b819c5c59,
+        type: 3}
+      propertyPath: m_fpsCamera
+      value: 
+      objectReference: {fileID: 3998790630930027126}
+    - target: {fileID: 5406365216374872794, guid: a1d70767381791c4b918e20b819c5c59,
+        type: 3}
+      propertyPath: m_fpsController
+      value: 
+      objectReference: {fileID: 3998790630918448562}
     - target: {fileID: 6002777568257595240, guid: a1d70767381791c4b918e20b819c5c59,
         type: 3}
       propertyPath: FPCamera
       value: 
       objectReference: {fileID: 3998790630930027126}
+    - target: {fileID: 6011290229872541786, guid: a1d70767381791c4b918e20b819c5c59,
+        type: 3}
+      propertyPath: m_camera
+      value: 
+      objectReference: {fileID: 3998790630930027126}
+    - target: {fileID: 6011290229872541786, guid: a1d70767381791c4b918e20b819c5c59,
+        type: 3}
+      propertyPath: m_gunsController
+      value: 
+      objectReference: {fileID: 1794194867791244501}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1d70767381791c4b918e20b819c5c59, type: 3}
 --- !u!4 &7610219174908580421 stripped
@@ -933,3 +1044,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8986756516326699908}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3448415830516184030 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6011290229872541786, guid: a1d70767381791c4b918e20b819c5c59,
+    type: 3}
+  m_PrefabInstance: {fileID: 8986756516326699908}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f523da3f23cd8c944a9b376b377c6dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

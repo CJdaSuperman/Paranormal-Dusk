@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1894625705503119455}
   - component: {fileID: 4334580215066527834}
-  - component: {fileID: 5524834274654096288}
+  - component: {fileID: 2561482288086421723}
   m_Layer: 0
   m_Name: BatteryPickup
   m_TagString: Untagged
@@ -47,7 +47,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.25
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5524834274654096288
+--- !u!114 &2561482288086421723
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,11 +56,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3101928738947680073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4959d09d8afd4f24f96b99e244b67cbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 862193473f096a240b9f4dc3b2727855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightAngle: 100
-  lightIntensity: 10
+  m_lightAngle: 100
+  m_lightIntensity: 10
 --- !u!1 &4118378348468047393
 GameObject:
   m_ObjectHideFlags: 0
