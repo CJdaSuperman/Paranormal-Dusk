@@ -1,5 +1,5 @@
 # Paranormal-Dusk
-This is the fourth tech demo I’ve made with Unity Engine.
+This is the fourth tech demo I’ve made with Unity Engine v2019.4.3f1.
 
 It's a first-person shooter horror game where your goal is to survive hordes of monsters while discovering what your connection to them is. Explore and find ammo pickups for guns such as pistols, shotguns, SMGs and snipers. You have to be quick though, your flashlight fades over time and the only way to replenish the flashlight’s brightness is by also picking up batteries around the environment.
 
